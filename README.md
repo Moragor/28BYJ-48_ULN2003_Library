@@ -5,3 +5,4 @@ The delay between steps can be adjusted to determine the rotation speed.
 
 Full and half steps can be mixed without limitation if needed.
 
+Credit to Thomas O Fredericks on whose library this is based on.
