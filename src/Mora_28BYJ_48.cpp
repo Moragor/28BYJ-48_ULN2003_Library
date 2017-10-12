@@ -12,11 +12,6 @@ Mora_28BYJ_48::Mora_28BYJ_48(uint8_t driverPin1, uint8_t driverPin2, uint8_t dri
 	pinMode(driverPin2, OUTPUT);
 	pinMode(driverPin3, OUTPUT);
 	pinMode(driverPin4, OUTPUT);
-	
-	_driverPin1 = driverPin1;
-	_driverPin2 = driverPin2;
-	_driverPin3 = driverPin3;
-	_driverPin4 = driverPin4;
 }
 
 void Mora_28BYJ_48::setDelay(uint16_t sDelay){		//Get the delay in micros from the main code
