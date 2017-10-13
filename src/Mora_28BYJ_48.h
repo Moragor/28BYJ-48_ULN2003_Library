@@ -19,7 +19,7 @@
 		
 		public:
 		Mora_28BYJ_48(uint8_t driverPin1, uint8_t driverPin2, uint8_t driverPin3, uint8_t driverPin4)
-			: _driverPin1(driverPin1), _driverPin2(driverPin2), _driverPin3(driverPin3), _driverPin4(driverPin4)
+			: _driverPin1(driverPin1), _driverPin2(driverPin2), _driverPin3(driverPin3), _driverPin4(driverPin4){}
 		void stepF(int16_t numSteps);
 		void stepH(int16_t numSteps);
 		void setDelay(uint16_t sDelay);

@@ -6,7 +6,7 @@
 #include "Arduino.h"
 #include "Mora_28BYJ_48.h"
 
-Mora_28BYJ_48::Mora_28BYJ_48(uint8_t driverPin1, uint8_t driverPin2, uint8_t driverPin3, uint8_t driverPin4)
+Mora_28BYJ_48::Mora_28BYJ_48(driverPin1, driverPin2, driverPin3, driverPin4)
 {
 	pinMode(driverPin1, OUTPUT);
 	pinMode(driverPin2, OUTPUT);
