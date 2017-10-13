@@ -1,6 +1,7 @@
 /*
 	Mora_28BYJ_48.h - Library for the 28BYJ_48 stepper motor + ULN2003 driver.
 	Created by Moragor, July 13, 2017.
+	Updated by Moragor, October 13, 2017.
 */
 
 #ifndef MORA_28BYJ_48_H
