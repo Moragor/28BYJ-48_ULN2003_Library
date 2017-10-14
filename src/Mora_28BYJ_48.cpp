@@ -1,29 +1,26 @@
 /*
 	Mora_28BYJ_48.cpp - Library for the 28BYJ_48 stepper motor + ULN2003 driver.
 	Created by Moragor, July 13, 2017.
+	Updated by Moragor, October 13, 2017.
 */
 
 #include "Arduino.h"
 #include "Mora_28BYJ_48.h"
 
-Mora_28BYJ_48::Mora_28BYJ_48(byte In1, byte In2, byte In3, byte In4)
+Mora_28BYJ_48::Mora_28BYJ_48(uint8_t driverPin1, uint8_t driverPin2, uint8_t driverPin3, uint8_t driverPin4)
+	: _driverPin1(driverPin1), _driverPin2(driverPin2), _driverPin3(driverPin3), _driverPin4(driverPin4)
 {
-	pinMode(In1, OUTPUT);
-	pinMode(In2, OUTPUT);
-	pinMode(In3, OUTPUT);
-	pinMode(In4, OUTPUT);
-	
-	_In1 = In1;
-	_In2 = In2;
-	_In3 = In3;
-	_In4 = In4;
+	pinMode(driverPin1, OUTPUT);
+	pinMode(driverPin2, OUTPUT);
+	pinMode(driverPin3, OUTPUT);
+	pinMode(driverPin4, OUTPUT);
 }
 
-void Mora_28BYJ_48::setDelay(unsigned int sDelay){		//Get the delay in micros from the main code
+void Mora_28BYJ_48::setDelay(uint16_t sDelay){		//Get the delay in micros from the main code
 	_sDelay = sDelay;
 };
 
-void Mora_28BYJ_48::stepF( int numSteps) {					//Function for the full step movement. Gets the desired number of steps to make
+void Mora_28BYJ_48::stepF( int16_t numSteps) {					//Function for the full step movement. Gets the desired number of steps to make
 	while (numSteps > 0){												//Positive numbers for forward rotation
 		if(_nextStep % 2 != 1){											//to make sure to use the right values in _steps and not switch to the less torquey single inputs
 			_nextStep++;
@@ -57,7 +54,7 @@ void Mora_28BYJ_48::stepF( int numSteps) {					//Function for the full step move
 	}
 };
 
-void Mora_28BYJ_48::stepH( int numSteps) {				//Function for the half step movement.
+void Mora_28BYJ_48::stepH( int16_t numSteps) {				//Function for the half step movement.
 	while (numSteps > 0){
 		_nextStep++;													//Similar to above's function, but with single advancements in _steps
 		if (_nextStep > 7){
@@ -79,9 +76,9 @@ void Mora_28BYJ_48::stepH( int numSteps) {				//Function for the half step movem
 	}
 };
 
-void Mora_28BYJ_48::setOutput(byte _nxt) {				//The function that sets the outputs on the Arduino HIGH or LOW (1 or 0)
-	digitalWrite(_In1, bitRead(_steps[_nxt], 0));			//digitalWrite("Arduino Pin", bitRead("_steps array"["array position "_nextStep""], "bit position from least significant"))
-	digitalWrite(_In2, bitRead(_steps[_nxt], 1));
-	digitalWrite(_In3, bitRead(_steps[_nxt], 2));
-	digitalWrite(_In4, bitRead(_steps[_nxt], 3));
+void Mora_28BYJ_48::setOutput(uint8_t _nxt) {				//The function that sets the outputs on the Arduino HIGH or LOW (1 or 0)
+	digitalWrite(_driverPin1, bitRead(_steps[_nxt], 0));			//digitalWrite("Arduino Pin", bitRead("_steps array"["array position "_nextStep""], "bit position from least significant"))
+	digitalWrite(_driverPin2, bitRead(_steps[_nxt], 1));
+	digitalWrite(_driverPin3, bitRead(_steps[_nxt], 2));
+	digitalWrite(_driverPin4, bitRead(_steps[_nxt], 3));
 };

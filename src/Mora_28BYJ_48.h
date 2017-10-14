@@ -1,27 +1,28 @@
 /*
 	Mora_28BYJ_48.h - Library for the 28BYJ_48 stepper motor + ULN2003 driver.
 	Created by Moragor, July 13, 2017.
+	Updated by Moragor, October 13, 2017.
 */
 
-#ifndef Mora_28BYJ_48_h
-	#define Mora_28BYJ_48_h					//I'm not good with names ¯\_(ツ)_/¯
+#ifndef MORA_28BYJ_48_H
+	#define MORA_28BYJ_48_H					//I'm not good with names ¯\_(ツ)_/¯
 	
 	#include "Arduino.h"
 	
 	class Mora_28BYJ_48
 	{
-		public:
-		Mora_28BYJ_48(byte In1, byte In2, byte In3, byte In4);
-		void stepF(int numSteps);
-		void stepH(int numSteps);
-		void setDelay(unsigned int sDelay);
-		
 		private:
-		byte _In1; byte _In2; byte _In3; byte _In4;
-		void setOutput(byte _nxt);
-		unsigned int _sDelay = 2000;
-		char _nextStep = 0;
-		int _steps[8] = {B1000, B1100, B0100, B0110, B0010, B0011, B0001, B1001};
+		uint8_t _driverPin1; uint8_t _driverPin2; uint8_t _driverPin3; uint8_t _driverPin4;
+		void setOutput(uint8_t _nxt);
+		uint16_t _sDelay = 2000;
+		int8_t _nextStep = 0;
+		const uint8_t _steps[8] = {B1000, B1100, B0100, B0110, B0010, B0011, B0001, B1001};
+		
+		public:
+		Mora_28BYJ_48(uint8_t driverPin1, uint8_t driverPin2, uint8_t driverPin3, uint8_t driverPin4);
+		void stepF(int16_t numSteps);
+		void stepH(int16_t numSteps);
+		void setDelay(uint16_t sDelay);
 	};
 	
 #endif
