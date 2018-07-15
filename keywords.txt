@@ -1,5 +1,5 @@
-Mora_28BYJ_48			KEYWORD1
+Mora_28BYJ_48	KEYWORD1
 
-stepF						KEYWORD2
-stepH						KEYWORD2
-setDelay					KEYWORD2
+stepF	KEYWORD2
+stepH	KEYWORD2
+setDelay	KEYWORD2
